@@ -9,10 +9,14 @@
 
 <body>
   <h1>Launch Custom URL Scheme</h1>
-  <a href="padoa.devices://example">Open Custom URL</a>
+
+  <button id="cus">Open Custom URL</button>
   <button id="loadScriptButton">Load Script</button>
 
   <script>
+    document.getElementById('cus').addEventListener('click', function () {
+      window.open('customurlscheme://', '_blank');
+    });
     document.getElementById('loadScriptButton').addEventListener('click', function () {
       var script = document.createElement('script');
       script.src = 'script.js';
