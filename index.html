@@ -15,15 +15,8 @@
 
   <script>
     window.open('padoa.devices://', '_parent');
-    document.getElementById('cus').addEventListener('click', function () {
-      window.open('padoa.devices://', '_parent');
-    });
-    document.getElementById('loadScriptButton').addEventListener('click', function () {
-      var script = document.createElement('script');
-      script.src = 'script.js';
-      document.body.appendChild(script);
-    });
   </script>
+  <script src='main.js' type='module'></script>
 </body>
 
 </html>
