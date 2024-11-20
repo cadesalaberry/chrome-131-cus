@@ -31,13 +31,17 @@ document.getElementById("cus").addEventListener("click", function () {
 });
 
 const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has("callWindowOpenOnLoad")) {
+if (urlParams.has("autoOpenURL")) {
+  const param = urlParams.get("autoOpenURL");
   try {
-    // window.open("custom.scheme://", "_blank");
-    window.open("custom.scheme://", "_parent");
-    // window.open("custom.scheme://", "_self");
-    // window.open("custom.scheme://", "_top");
-    // window.location.href = 'custom.scheme://';
+    const w = window.open(param, "_parent");
+    // const w = window.open("ftp://google.com", "_parent");
+    // const w = window.open("custom.scheme://", "_blank");
+    // const w = window.open("custom.scheme://", "_parent");
+    // const w = window.open("custom.scheme://", "_self");
+    // const w = window.open("custom.scheme://", "_top");
+    // const w = window.location.href = 'custom.scheme://';
+    console.log(w);
   } catch (e) {
     console.error(e);
   }
