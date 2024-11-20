@@ -12,11 +12,14 @@
 
   <button id="cus">Open Custom URL</button>
   <button id="loadScriptButton">Load Script</button>
+  <script src="main.js" type="module"></script>
 
   <script>
-    window.open('padoa.devices://', '_parent');
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('callWindowOpenOnLoad')) {
+      window.open('custom.scheme://', '_parent');
+    }
   </script>
-  <script src='main.js' type='module'></script>
 </body>
 
 </html>
