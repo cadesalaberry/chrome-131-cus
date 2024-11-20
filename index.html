@@ -17,7 +17,11 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('callWindowOpenOnLoad')) {
-      window.open('custom.scheme://', '_parent');
+      try {
+        window.open('custom.scheme://', '_parent');
+      } catch (e) {
+        console.error(e);
+      }
     }
   </script>
 </body>
