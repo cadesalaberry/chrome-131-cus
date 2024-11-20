@@ -9,21 +9,29 @@
 
 <body>
   <h1>Launch Custom URL Scheme</h1>
-
+  <a href='?callWindowOpenOnLoad'>Load page with auto window.open on load</a>
+  <br>
+  <a href='?'>Load page WITHOUT auto window.open on load</a>
+  <br>
+  <br>
   <button id="cus">Open Custom URL</button>
   <button id="loadScriptButton">Load Script</button>
+  <button id="loadScriptAsLinkButton">Load Script as link</button>
+  <button id="loadModuleWindowOpenButton">import module with window.open</button>
+  <br>
+  <br>
   <script src="main.js" type="module"></script>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('callWindowOpenOnLoad')) {
-      try {
-        window.open('custom.scheme://', '_parent');
-      } catch (e) {
-        console.error(e);
-      }
+    function log(message, object) {
+      const div = document.createElement("div");
+      div.textContent = message;
+      document.body.appendChild(div);
+      console.log(message);
     }
   </script>
+  <script>log('plain script in html loaded')</script>
+  <script type="module">log('module in html loaded')</script>
 </body>
 
 </html>
